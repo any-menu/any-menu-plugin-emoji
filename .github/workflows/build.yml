@@ -37,7 +37,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-latest
     permissions:
-      contents: write  # 关键！允许创建 Release，无需 PAT
+      contents: write  # 允许无需 PAT 创建 Release
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
