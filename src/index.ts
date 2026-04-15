@@ -8,7 +8,7 @@ let cache_ctx: PluginInterfaceCtx | undefined
 export default class EmojiPlugin implements PluginInterface {
   metadata = {
     id: 'any-menu-emoji',
-    name: 'Example Plugin Simple',
+    name: 'EmojiTools',
     version: '1.0.2',
     min_app_version: '1.1.0',
     author: 'LincZero',
