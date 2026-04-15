@@ -9,7 +9,7 @@ export default class EmojiPlugin implements PluginInterface {
   metadata = {
     id: 'any-menu-emoji',
     name: 'Example Plugin Simple',
-    version: '1.0.1',
+    version: '1.0.2',
     min_app_version: '1.1.0',
     author: 'LincZero',
     description: 'An AnyMenu plugin about pick emoji.',
