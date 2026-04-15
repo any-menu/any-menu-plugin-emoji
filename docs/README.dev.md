@@ -2,13 +2,18 @@
 
 (用户不用看)
 
-## 背景
+## 记录项目 emoji-mart 使用方式
+
+参考: https://github.com/missive/emoji-mart
+参考: ../src/panel.ts
+
+## Emoji 前端库调研
+
+### 背景
 
 调研: emoji字典/前端库
 
 目前需求：我要往一个 div 里填入一个 emoji 显示/分类/搜索面板，选择 emoji 后直接调用我给定的 send 函数输出到光标位置
-
-## Emoji 前端库调研
 
 ### 🏆 推荐库一览
 

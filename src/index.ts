@@ -1,6 +1,7 @@
 import cssText from './style.css?inline';
 
 import type { PluginInterface, PluginInterfaceCtx } from 'any-menu';
+import { init_panel } from './panel'
 
 let cache_ctx: PluginInterfaceCtx | undefined
 
@@ -29,25 +30,21 @@ export default class EmojiPlugin implements PluginInterface {
     // 注册面板示例
     if (!cache_ctx) {
       cache_ctx = ctx
-      const newPanel = document.createElement('div'); newPanel.innerText = 'New Panel Content';
+      const newPanel = document.createElement('div'); newPanel.dataset.id = 'any-menu-emoji-panel'; newPanel.classList.add('any-menu-emoji-panel')
       ctx.api.registerSubPanel({
           id: 'any-menu-emoji-panel',
           el: newPanel
       })
+
+      init_panel(newPanel, ctx.api.sendText)
     }
 
-    // 文本输出示例
-    const selected = ctx.env.selectedText;
-    if (selected && selected.trim() !== '') {
-      // 如果有选中文本，在其后追加问候
-      ctx.api.sendText(`${selected} — AnyMenu emoji plugin!`);
-    } else {
-      // 否则直接输出
-      // ctx.api.sendText('AnyMenu emoji plugin!');
+    ctx.api.hidePanel()
+    ctx.api.showPanel(['any-menu-emoji-panel'])
 
-      // 否则显示面板
-      ctx.api.hidePanel(['menu'])
-      ctx.api.showPanel(['any-menu-emoji-panel'])
+    const input: HTMLInputElement|null = document.querySelector('.am-custom-panel .any-menu-emoji-panel .search>input')
+    if (input) {
+      input.focus()
     }
   }
 }
