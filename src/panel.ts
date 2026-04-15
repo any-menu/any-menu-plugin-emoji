@@ -22,7 +22,7 @@ export function init_panel(el: HTMLElement, send: (str: string) => void) {
       console.log('debug emoji', emoji)
       send(emoji.native)
     },
-    locale: 'zh',   // 中文搜索（需安装 @emoji-mart/data/i18n/zh.json）
+    locale: 'zh',   // 中文显示文本
     theme: 'dark',  // light / dark / auto
   })
 

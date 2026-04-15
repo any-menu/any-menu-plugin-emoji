@@ -36,6 +36,8 @@ jobs:
     if: github.event_name == 'push' # no pr
     needs: [build]
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 关键！允许创建 Release，无需 PAT
     steps:
       - name: Download all artifacts
         uses: actions/download-artifact@v4
@@ -51,7 +53,7 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: ncipollo/release-action@v1
         with:
-          token: ${{ secrets.Your_token_secrets_name }} # GitHub Token，不填报错: `Error: Error undefined: Parameter token or opts.auth is required`
+          # token: ${{ secrets.Your_token_secrets_name }} # GitHub Token，不填报错: `Error: Error undefined: Parameter token or opts.auth is required`
           name: 'Release ${{ github.ref_name }}'
           body: 'Release for tag ${{ github.ref_name }}'
           artifacts: |
