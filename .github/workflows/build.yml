@@ -53,7 +53,8 @@ jobs:
         if: startsWith(github.ref, 'refs/tags/')
         uses: ncipollo/release-action@v1
         with:
-          # token: ${{ secrets.Your_token_secrets_name }} # GitHub Token，不填报错: `Error: Error undefined: Parameter token or opts.auth is required`
+          # token: ${{ secrets.Your_token_secrets_name }} # PAT GitHub Token，可选，不填报错: `Error: Error undefined: Parameter token or opts.auth is required`
+          token: ${{ secrets.GITHUB_TOKEN }} # 内置 Github Token
           name: 'Release ${{ github.ref_name }}'
           body: 'Release for tag ${{ github.ref_name }}'
           artifacts: |
